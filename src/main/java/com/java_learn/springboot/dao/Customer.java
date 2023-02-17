@@ -1,4 +1,4 @@
-package com.java_learn.springboot;
+package com.java_learn.springboot.dao;
 
 import jakarta.persistence.*;
 
@@ -8,8 +8,9 @@ import java.util.Objects;
 public class Customer {
     @Id
     @SequenceGenerator(
-            name="customer_id_sequence",
-            sequenceName = "customer_id_sequence" )
+            name = "customer_id_sequence",
+            sequenceName = "customer_id_sequence",
+            allocationSize = 1)
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "customer_id_sequence"
@@ -19,27 +20,11 @@ public class Customer {
     private String email;
     private Integer age;
 
-
     public Customer() {
-    }
-
-    public Customer(
-            Integer id,
-            String name,
-            String email,
-            Integer age) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.age = age;
     }
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getName() {
